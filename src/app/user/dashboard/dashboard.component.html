@@ -1,0 +1,150 @@
+
+<!-- header start -->
+
+<header class="bg-white shadow fixed w-full z-10 h-16">
+  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+    <div class="flex items-center">
+      <!-- Sidebar toggle button -->
+      <button (click)="toggleSidebar()" class="lg:hidden focus:outline-none mb-5">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+      <div class="text-2xl font-bold ml-4 mb-6">Learn With US!</div>
+    </div>
+    <div class="relative" (click)="toggleDropdown()">
+      <div class="flex items-center cursor-pointer ">
+        <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center mb-5 justify-center text-lg text-white font-bold" [style.background-image]="'url(' + userProfilePic + ')'" [ngStyle]="{'background-size': 'cover'}">
+          <span *ngIf="!userProfilePic">{{ getInitial(userName) }}</span>
+        </div>
+        <span class="ml-2 mb-5 font-serif">{{ userName }}</span>
+        <svg class="w-4 h-4 ml-2 mb-5 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+      </div>
+      <div *ngIf="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg py-1 z-20">
+        <a routerLink="/profile" class="block px-4 py-2 text-sm text-gray-700 rounded-md hover:bg-purple-600 hover:text-white font-serif">Profile</a>
+        <a routerLink="/settings" class="block px-4 py-2 text-sm text-gray-700 rounded-md hover:bg-purple-600 hover:text-white font-serif">Settings</a>
+        <a (click)="logout()" class="block px-4 py-2 text-sm text-gray-700 rounded-md hover:bg-purple-600 hover:text-white cursor-pointer font-serif">Sign Out</a>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- header end -->
+<div class="flex h-screen bg-gray-100">
+  <!-- Overlay for small screens -->
+  <div *ngIf="isSidebarOpen" class="fixed inset-0 z-20 bg-black opacity-50 lg:hidden" (click)="toggleSidebar()"></div>
+  
+  <!-- Sidebar -->
+  <div
+    class="fixed inset-y-0 left-0 z-30 w-64 transition duration-300 transform bg-white shadow-xl overflow-y-auto lg:static lg:inset-0 lg:translate-x-0"
+    [ngClass]="{ '-translate-x-full': !isSidebarOpen }"
+  >
+
+    <div class="flex items-center justify-between h-16 px-4 bg-purple-600 text-white">
+      <span class=" text-2xl font-bold font-serif">Learn With US!</span>
+      <button class="lg:hidden focus:outline-none" (click)="toggleSidebar()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    
+      
+    </div>
+    <nav class="px-4 py-6">
+      <ul class="space-y-4">
+        <li>
+          <a routerLink="/d" class="px-1 py-1 flex items-center text-gray-700 rounded-md hover:bg-purple-600 hover:text-white transition-colors font-serif">
+            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7m-7-7v18"></path>
+            </svg>
+            Analytics
+          </a>
+        </li>
+        <li>
+          <a routerLink="/profile" class=" px-1 py-1 flex items-center rounded-md text-gray-700 hover:bg-purple-600 hover:text-white transition-colors font-serif">
+            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A3.975 3.975 0 014 15.401c0-.768.294-1.536.88-2.121a3.975 3.975 0 015.656 0 3.975 3.975 0 015.656 0 3.975 3.975 0 015.656 0 3.975 3.975 0 010 5.656 3.975 3.975 0 01-5.656 0 3.975 3.975 0 00-5.656 0 3.975 3.975 0 01-5.656 0z"></path>
+            </svg>
+            Profile
+          </a>
+        </li>
+        <li>
+          <a routerLink="/courses" class=" px-1 py-1 flex items-center rounded-md text-gray-700 hover:bg-purple-600 hover:text-white transition-colors font-serif">
+            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.723A2 2 0 013 15.618V6.382a2 2 0 01.553-1.447L9 2m0 0a2 2 0 012 0l6.447 2.935a2 2 0 011.106 1.676v9.176a2 2 0 01-.553 1.447L11 20M9 2v18m2 0l6.447-2.723A2 2 0 0019 15.618V6.382a2 2 0 00-.553-1.447L11 2z"></path>
+            </svg>
+            Courses
+          </a>
+        </li>
+        <li>
+          <a routerLink="/new-courses" class=" px-1 py-1 flex items-center rounded-md text-gray-700 hover:bg-purple-600 hover:text-white transition-colors font-serif">
+            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+            </svg>
+            New Courses
+          </a>
+        </li>
+        <li>
+          <a routerLink="/my-enrolled-courses" class=" px-1 py-1 flex items-center rounded-md text-gray-700 hover:bg-purple-600 hover:text-white transition-colors font-serif">
+            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8a9 9 0 110-18 9 9 0 010 18z"></path>
+            </svg>
+            My Enrolled Courses
+          </a>
+        </li>
+        <li>
+          <a routerLink="fcourses" class=" px-1 py-1 flex items-center rounded-md text-gray-700 hover:bg-purple-600 hover:text-white transition-colors font-serif">
+            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18l-2 13H5L3 3z"></path>
+            </svg>
+            Buy Courses
+          </a>
+        </li>
+        <li>
+          <a routerLink="/fcourses" class=" px-1 py-1 flex items-center rounded-md text-gray-700 hover:bg-purple-600 hover:text-white transition-colors font-serif">
+            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1m0-13v1"></path>
+            </svg>
+            Free Courses
+          </a>
+        </li>
+        <br>
+        <hr>
+        <br>
+        <li>
+          <a routerLink="/home" class=" ml-2 flex items-center text-gray-700 hover:text-purple-600 transition-colors font-serif">
+            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7m-7-7v18"></path>
+            </svg>
+            Home
+          </a>
+        </li>
+        <li>
+          <a routerLink="/contact"  class=" ml-2 flex items-center text-gray-700 hover:text-purple-600 transition-colors font-serif">
+            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1m0-13v1"></path>
+            </svg>
+            About US!
+          </a>
+        </li>
+        <li>
+          <a routerLink="/contact" class="ml-2 flex items-center text-gray-700 hover:text-purple-600 transition-colors font-serif">
+            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1m0-13v1"></path>
+            </svg>
+            Contact US!
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main content -->
+  <div class="flex-1 p-10 bg-gray-100 mt-10">
+    <!-- <button (click)="toggleSidebar()" class="p-2 text-white bg-purple-600 rounded-lg lg:hidden flex items-center space-x-2">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button> -->
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<section class="text-gray-600 body-font relative top-10">
+  <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+    <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+      <h2 class="text-3xl font-bold text-center mb-4 font-serif">Join Our Learning Community Today</h2>
+      <p class="text-center mb-5 text-lg font-serif">
+        By signing up, you unlock access to a diverse array of courses tailored to your interests and career goals.
+        Experience hands-on learning with expert instructors, interactive content, and real-world projects.
+        Take the first step towards achieving your dreams and sign up now!
+      </p>
+    </div>
+    <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+      <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Sign Up</h2>
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="relative mb-4">
+          <label for="full-name" class="leading-7 text-sm text-gray-600">Full Name</label>
+          <input type="text" id="full-name" formControlName="fullName" class="w-full bg-white rounded border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          <div *ngIf="signupForm.get('fullName')?.invalid && signupForm.get('fullName')?.touched" class="text-red-500 text-sm">
+            Full Name is required.
+          </div>
+        </div>
+        <div class="relative mb-4">
+          <label for="dob" class="leading-7 text-sm text-gray-600">Date of Birth</label>
+          <input type="date" id="dob" formControlName="dob" class="w-full bg-white rounded border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          <div *ngIf="signupForm.get('dob')?.invalid && signupForm.get('dob')?.touched" class="text-red-500 text-sm">
+            Date of Birth is required.
+          </div>
+        </div>
+        <div class="relative mb-4">
+          <label for="whatsapp-number" class="leading-7 text-sm text-gray-600">WhatsApp Number</label>
+          <input type="text" id="whatsapp-number" formControlName="whatsappNumber" class="w-full bg-white rounded border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          <div *ngIf="signupForm.get('whatsappNumber')?.invalid && signupForm.get('whatsappNumber')?.touched" class="text-red-500 text-sm">
+            <!-- <div *ngIf="signupForm.get('whatsappNumber').errors.required">WhatsApp Number is required.</div>
+            <div *ngIf="signupForm.get('whatsappNumber').errors.pattern">WhatsApp Number must start with +92 and followed by 10 digits.</div> -->
+          </div>
+        </div>
+        <div class="relative mb-4">
+          <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+          <input type="email" id="email" formControlName="email" class="w-full bg-white rounded border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="text-red-500 text-sm">
+            <!-- <div *ngIf="signupForm.get('email').errors.required">Email is required.</div>
+            <div *ngIf="signupForm.get('email').errors.email">Invalid email address.</div> -->
+          </div>
+        </div>
+        <div class="relative mb-4">
+          <label for="password" class="leading-7 text-sm text-gray-600">Password</label>
+          <input type="password" id="password" formControlName="password" class="w-full bg-white rounded border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="text-red-500 text-sm">
+            <!-- <div *ngIf="signupForm.get('password').errors.required">Password is required.</div>
+            <div *ngIf="signupForm.get('password').errors.minlength">Password must be at least 6 characters long.</div> -->
+          </div>
+        </div>
+        <div class="relative mb-4">
+          <label for="confirm-password" class="leading-7 text-sm text-gray-600">Confirm Password</label>
+          <input type="password" id="confirm-password" formControlName="confirmPassword" class="w-full bg-white rounded border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          <div *ngIf="signupForm.get('confirmPassword')?.invalid && signupForm.get('confirmPassword')?.touched" class="text-red-500 text-sm">
+            Confirm Password is required.
+          </div>
+        </div>
+        <button type="submit" class="text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg">Submit</button>
+        <p class="text-xs text-gray-500 mt-3">If You Already Have an Account <a class="text-pink-500 font-serif" routerLink="/login">Login</a></p>
+      </form>
+    </div>
+  </div>
+</section>
