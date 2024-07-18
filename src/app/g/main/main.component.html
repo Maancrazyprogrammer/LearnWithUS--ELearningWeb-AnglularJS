@@ -1,12 +1,12 @@
 <div class="bg-white scroll-smooth md:scroll-auto">
   <div class="bg-fuchsia-50 bg-blend-darken mix-blend-plus-darker bg-no-repeat bg-left-top">
-   <app-navbar></app-navbar>
+   <app-navbar [logonamerequired]="title"></app-navbar>
   </div>
   <div  >
     <router-outlet></router-outlet>
   </div>
   <div class="bg-purple-500 bg-blend-darken mix-blend-plus-darker bg-no-repeat bg-left-top ">
-      <app-footer></app-footer>
+      <app-footer [logonamerequired]="title"></app-footer>
   </div>
   
    

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 @Component({
   selector: 'app-footer',
@@ -8,6 +8,14 @@ import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent implements AfterViewInit {
+
+  @Input({
+    alias:'logonamerequired',
+    required:true,
+    // transform:(value:string)=> value.toUpperCase()
+  }) logoName:string='E-Learning Plateform';
+
+
   @ViewChild('videoPlayer') videoPlayer!: ElementRef<HTMLVideoElement>;
   @ViewChild('videoPlayers') videoPlayers!: ElementRef<HTMLVideoElement>;
   ngAfterViewInit(): void {

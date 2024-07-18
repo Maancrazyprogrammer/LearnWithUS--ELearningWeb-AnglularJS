@@ -8,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
+email:string='muhammadnoumanmalik52@gmail.com'
+unSavedData:boolean=true;
 
+checkUnSavedData():boolean{
+  if(this.unSavedData){
+    return confirm('There is some unsaved Date, Are you sure you want to navigate?');
+  }
+  return true;
 }
+}
+

@@ -3,13 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-courses',
+  selector: 'app-enrolled-courses',
   standalone: true,
-  imports: [RouterOutlet, RouterLink,NgClass,NgStyle,NgIf,NgFor],
-  templateUrl: './courses.component.html',
-  styleUrl: './courses.component.css'
+  imports: [RouterOutlet,RouterLink,NgClass,NgStyle,NgIf,NgFor],
+  templateUrl: './enrolled-courses.component.html',
+  styleUrl: './enrolled-courses.component.css'
 })
-export class CoursesComponent implements OnInit {
+export class EnrolledCoursesComponent implements OnInit {
   courses = [
     {
       name: 'Guided Project',

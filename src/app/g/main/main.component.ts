@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SliderComponent } from '../slider/slider.component';
 import { GalleryComponent } from '../gallery/gallery.component';
 import { CoursePriceComponent } from '../course-price/course-price.component';
 import { BlogComponent } from '../blog/blog.component';
@@ -11,10 +10,10 @@ import { NavbarComponent } from '../navbar/navbar.component';
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [SliderComponent ,GalleryComponent,CoursePriceComponent,BlogComponent,StatisticsComponent,FooterComponent,RouterOutlet,RouterModule,RouterLink,RouterLinkActive,NavbarComponent],
+  imports: [GalleryComponent,CoursePriceComponent,BlogComponent,StatisticsComponent,FooterComponent,RouterOutlet,RouterModule,RouterLink,RouterLinkActive,NavbarComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })
 export class MainComponent {
-
+title:string = 'Learn With US!';
 }

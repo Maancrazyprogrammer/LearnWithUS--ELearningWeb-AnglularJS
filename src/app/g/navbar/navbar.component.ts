@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 import { AuthServiceService } from '../../service/auth-service.service';
@@ -12,7 +12,12 @@ import { NgClass, NgIf } from '@angular/common';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
- 
+  @Input({
+    alias:'logonamerequired',
+    required:true,
+    transform:(value:string)=> value.toUpperCase()
+  }) logoName:string='E-Learning Plateform';
+
   isMenuOpen = false;
 
   toggleMenu() {

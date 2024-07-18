@@ -6,11 +6,12 @@ import { NgClass, NgIf, NgStyle } from '@angular/common';
 import { AuthServiceService } from '../../service/auth-service.service';
 import { HeaderComponent } from '../header/header.component';
 import { NavbarComponent } from '../../g/navbar/navbar.component';
+import { ProfileComponent } from '../profile/profile.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [SidebarComponent,RouterOutlet,RouterLink,CoursesComponent,NgClass,NgIf,HeaderComponent,NgStyle,NavbarComponent],
+  imports: [SidebarComponent, RouterOutlet, RouterLink, CoursesComponent, NgClass, NgIf, HeaderComponent, NgStyle, NavbarComponent, ProfileComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })

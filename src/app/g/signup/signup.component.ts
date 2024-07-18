@@ -13,7 +13,13 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './signup.component.css'
 })
 export class SignupComponent {
-    
+  unsavedData:boolean=true;
+  checkUnsavedPageState():boolean{
+    if(this.unsavedData){
+      return confirm('There is some unsaved data, Are you sure you want to navigate?');
+    }
+    return true;
+  }
   signupForm: FormGroup;
 
   constructor(

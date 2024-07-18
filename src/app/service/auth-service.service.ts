@@ -69,4 +69,7 @@ export class AuthServiceService {
     this.logout();
     return null;
   }
+  getUserRole(){
+    return 'user';
+  }
 }

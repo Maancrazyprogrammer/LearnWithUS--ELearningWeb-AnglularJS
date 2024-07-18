@@ -1,0 +1,32 @@
+<div class="flex justify-center items-center min-h-screen">
+    <div class="w-full max-w-lg bg-white p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-bold mb-4 font-serif text-pretty text-center">User Profile</h2>
+
+      <form (ngSubmit)="updateProfile()" [formGroup]="profileForm">
+        <div class="mb-4">
+          <label for="name" class="block text-sm font-medium text-gray-700 font-serif">Name</label>
+          <input id="name" type="text" formControlName="name" class="mt-1 p-2 block w-full border border-gray-300 rounded-md" />
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-medium text-gray-700 font-serif">Email</label>
+          <input id="email" type="email" formControlName="email" class="mt-1 p-2 block w-full border border-gray-300 rounded-md" />
+        </div>
+        <div class="mb-4">
+          <label for="phone" class="block text-sm font-medium text-gray-700 font-serif">Whatsapp Number</label>
+          <input id="phone" type="text" formControlName="phone" class="mt-1 p-2 block w-full border border-gray-300 rounded-md" />
+        </div>
+        <div class="mb-4">
+          <label for="address" class="block text-sm font-medium text-gray-700 font-serif">Date of Birth</label>
+          <input id="address" type="date" formControlName="address" class="mt-1 p-2 block w-full border border-gray-300 rounded-md" />
+        </div>
+        <div class="mb-4">
+          <label for="profilePicture" class="block text-sm font-medium text-gray-700 font-serif">Profile Picture</label>
+          <input id="profilePicture" type="file" (change)="onFileChange($event)" class="mt-1 p-2 block w-full border border-gray-300 rounded-md" />
+        </div>
+        <button type="submit" class="w-full bg-purple-600 text-white py-2 px-4 rounded-md font-serif">Update Profile</button> 
+        
+      </form>
+  </div>
+     
+  </div>
+  

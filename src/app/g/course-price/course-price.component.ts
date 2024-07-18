@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { AuthServiceService } from '../../service/auth-service.service';
+
 
 @Component({
   selector: 'app-course-price',
@@ -10,4 +12,14 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class CoursePriceComponent {
 
+  constructor(private authservice: AuthServiceService, private router:Router){
+  }
+  IsLogin(){
+    if(this.authservice.isLoggedIn()){
+      this.router.navigate(['/d/fcourses']);
+    }  
+    else{
+      this.router.navigate(['login']);
+    }
+  }
 }

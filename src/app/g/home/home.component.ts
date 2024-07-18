@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import 'animate.css';
-
-import { SliderComponent } from '../slider/slider.component';
 import { GalleryComponent } from '../gallery/gallery.component';
 import { CoursePriceComponent } from '../course-price/course-price.component';
 import { BlogComponent } from '../blog/blog.component';
@@ -12,12 +10,16 @@ import { RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angul
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SliderComponent,GalleryComponent,CoursePriceComponent,BlogComponent,StatisticsComponent,FooterComponent,RouterOutlet,RouterModule,RouterLink,RouterLinkActive ],
+  imports: [GalleryComponent,CoursePriceComponent,BlogComponent,StatisticsComponent,FooterComponent,RouterOutlet,RouterModule,RouterLink,RouterLinkActive ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  instructors:string="Best";
   ngOnInit() {
    
+  }
+  getInstructor(value:string){
+    this.instructors=value;
   }
 }
