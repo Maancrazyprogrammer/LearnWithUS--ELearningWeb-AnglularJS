@@ -92,9 +92,22 @@ export const routes: Routes = [
         title:'Profile'
       },
       {
+        path: 'buyCourses',
+        loadComponent: () => import('./user/buy-courses/buy-courses.component').then((m)=>m.BuyCoursesComponent),
+        title:'Buy Courses'
+      },
+      {
         path: 'courses',
-        loadChildren: () => import('./user/courses/courses.component').then((m)=>m.CoursesComponent),
-        title:'New Courses'
+        loadComponent: () => import('./user/courses/courses.component').then((m)=>m.CoursesComponent),
+        title:'New Courses',
+        children:[
+          {
+            path:'cdesc',
+            loadComponent: () => import('./user/courses/course-desc/course-desc.component').then((m)=>m.CourseDescComponent),
+            title:'Course Detail'
+
+          }
+        ]
       },
       {
         path: 'EnCourses',

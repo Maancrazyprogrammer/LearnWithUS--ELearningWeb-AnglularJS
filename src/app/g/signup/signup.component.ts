@@ -3,7 +3,7 @@ import { FormGroup,  Validators, ReactiveFormsModule, FormBuilder  } from '@angu
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthServiceService } from '../../service/auth-service.service';
 import { NgIf } from '@angular/common';
-import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-signup',

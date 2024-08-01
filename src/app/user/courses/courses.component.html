@@ -1,10 +1,24 @@
-<div class="p-4 mt-5">
+
+
+<div class="p-4 " >
   <!-- <div class=" block  bg-purple-600 rounded-lg text-white mb-4">
     <p class="text-xl py-4  text-center text-white font-serif">New Courses For Learning</p>
    
   </div> -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-3 ">
-      <div *ngFor="let course of courses" class="bg-white rounded-lg shadow-md overflow-hidden border-dotted border hover:border-purple-600 hover:shadow-lg hover:shadow-purple-400">
+ 
+  <div class="flex flex-col text-center  w-full mb-5">
+    <!-- <h1 class="sm:text-3xl text-2xl font-medium  mb-2 text-gray-900 font-serif">Our Best Courses</h1> -->
+    
+     <!-- <h2 class="text-3xl font-bold text-center mb-8 font-serif">Our Best Courses</h2> -->
+    <!-- <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-500">Unlock Your Potential with Our Courses. Hurry Upp!!</p> -->
+    <div class="flex mx-auto border-2 border-purple-500 rounded overflow-hidden mt-6">
+      <button [ngClass]="{'bg-purple-500': monthly, 'text-white':monthly }" class="py-1 px-4 bg-purple-500 font-serif  focus:outline-none " (click)="Monthly()">Monthly</button>
+      <button  [ngClass]="{'bg-purple-500': annually,'text-white':annually  }" class="py-1 px-4 focus:outline-none font-serif" (click)="Annually()">Annually</button>
+    </div>
+  </div>
+  @defer{
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-3 ">
+      <div *ngFor="let course of courses" class="bg-white hover:backdrop-brightness-200 hover:bg-gray-300 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border-dotted border hover:border-purple-600 hover:shadow-purple-400" routerLink="cdesc">
      
         <img [src]="course.imageUrl" alt="{{ course.name }}" class="w-full h-40 object-cover rounded-md  border-white mb-4 ">
         <div class="p-4">
@@ -13,5 +27,15 @@
           <p class="font-serif text-Blue text-justify font-bold">{{course.name}}</p>
         </div>
       </div>
-    </div>
+    </div> 
+  }@placeholder(){
+   
+}@loading(minimum 2s){
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner"></div>
+  </div>
+}@error {   
+  <p>error...</p>
+}
+  
 </div>

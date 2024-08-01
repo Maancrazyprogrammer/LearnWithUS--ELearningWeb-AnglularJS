@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarComponent } from '../sidebar/sidebar.component';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CoursesComponent } from '../courses/courses.component';
 import { NgClass, NgIf, NgStyle } from '@angular/common';
 import { AuthServiceService } from '../../service/auth-service.service';
 import { HeaderComponent } from '../header/header.component';
 import { NavbarComponent } from '../../g/navbar/navbar.component';
 import { ProfileComponent } from '../profile/profile.component';
+import { BuyCoursesComponent } from '../buy-courses/buy-courses.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [SidebarComponent, RouterOutlet, RouterLink, CoursesComponent, NgClass, NgIf, HeaderComponent, NgStyle, NavbarComponent, ProfileComponent],
+  imports: [SidebarComponent, RouterOutlet, RouterLink, RouterLinkActive, CoursesComponent, NgClass, NgIf, HeaderComponent, NgStyle, NavbarComponent, ProfileComponent,BuyCoursesComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })

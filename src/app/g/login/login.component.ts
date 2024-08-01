@@ -3,15 +3,12 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthServiceService } from '../../service/auth-service.service';
-import { ToastrModule, ToastrService } from 'ngx-toastr';
-import { toUSVString } from 'util';
-
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterOutlet,RouterLink,NgIf,ReactiveFormsModule,ToastrModule,],
+  imports: [RouterOutlet,RouterLink,NgIf,ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 
@@ -26,7 +23,7 @@ export class LoginComponent {
     private fb: FormBuilder,
     private authService: AuthServiceService,
     private router: Router,
-    private toastr: ToastrService
+ 
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -47,15 +44,15 @@ export class LoginComponent {
   onSubmit(): void {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe(
-        () => {
-          this.toastr.success('Login successful!', 'Success');
+        (response) => {
+         
           this.router.navigate(['/d']);
          
 
         },
         error => {
           this.loginError = error.error.msg;
-          this.toastr.error('Login failed. Please check your credentials.' );
+         
         }
       );
     }

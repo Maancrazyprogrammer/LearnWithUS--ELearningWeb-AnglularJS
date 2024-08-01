@@ -1,0 +1,8 @@
+.active{
+    /* border: 1px solid purple; */
+    background-color: blue;
+    border: 1px solid double black;
+    color: white;
+    border-radius: 10px 10px ;
+    padding: 5px 5px 10px 10px;
+}

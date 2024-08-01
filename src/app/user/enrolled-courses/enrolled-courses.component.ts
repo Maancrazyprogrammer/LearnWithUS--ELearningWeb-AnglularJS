@@ -10,6 +10,8 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './enrolled-courses.component.css'
 })
 export class EnrolledCoursesComponent implements OnInit {
+  loading: boolean = true;
+
   courses = [
     {
       name: 'Guided Project',
@@ -63,4 +65,5 @@ export class EnrolledCoursesComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 }

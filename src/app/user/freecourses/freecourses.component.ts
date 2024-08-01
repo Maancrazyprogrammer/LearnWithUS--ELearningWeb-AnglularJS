@@ -10,6 +10,10 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './freecourses.component.css'
 })
 export class FreecoursesComponent implements OnInit {
+  loading: boolean = true;
+  monthly: boolean = true;
+  annually: boolean = false;
+  
   courses = [
     {
       name: 'Guided Project',
@@ -62,5 +66,13 @@ export class FreecoursesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+  Monthly(){
+    this.monthly=true;
+    this.annually=false;
+   }
+  Annually(){
+ this.annually=true;
+ this.monthly=false;
   }
 }

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { AuthServiceService } from '../../service/auth-service.service';
-import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-email-verification',
@@ -23,7 +23,7 @@ export class EmailVerificationComponent {
     private apiService: AuthServiceService, // Inject ApiService
     private router: Router,
     private route: ActivatedRoute,
-    // private toastr: ToastrService // Inject ToastrService
+
   ) {
     this.verifyEmailForm = this.fb.group({
       digit1: ['', [Validators.required, Validators.pattern('\\d')]],

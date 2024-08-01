@@ -18,13 +18,26 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
-        <a class="text-sm font-semibold leading-6 text-gray-900 font-serif" routerLink="home" routerLinkActive="active">Home</a>
-        <a routerLink="course" class="text-sm font-semibold leading-6 text-gray-900 font-serif">Buy Courses</a>
-        <a class="text-sm font-semibold leading-6 text-gray-900 font-serif">Playlist</a>
-        <a class="text-sm font-semibold leading-6 text-gray-900 font-serif" routerLink="contact">Contact Us</a>
+        <a class="text-sm font-semibold leading-6 text-gray-900 font-serif animate__animated animate__rubberBand" routerLink="home" routerLinkActive="active">Home</a>
+        <a routerLink="course" class="text-sm font-semibold leading-6 text-gray-900 font-serif animate__animated animate__rubberBand" routerLinkActive="active">Buy Courses</a>
+        <a class="text-sm font-semibold leading-6 text-gray-900 font-serif animate__animated animate__rubberBand" routerLinkActive="active">Playlist</a>
+        <a class="text-sm font-semibold leading-6 text-gray-900 font-serif animate__animated animate__rubberBand" routerLink="contact" routerLinkActive="active">Contact Us</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 animate__animated animate__rubberBand font-serif" routerLink="login">Log in <span aria-hidden="true">&rarr;</span></a>
+
+
+      
+<a *ngIf="!isLoggedIn" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 animate__animated animate__rubberBand font-serif hover:cursor-pointer" routerLink="login">Log in <span aria-hidden="true">&rarr;</span></a>
+
+<a *ngIf="isLoggedIn" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 animate__animated animate__rubberBand font-serif hover:cursor-pointer" routerLink="/d">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 inline-block mr-1">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a5 5 0 00-5 5c0 3.5 5 10 5 10s5-6.5 5-10a5 5 0 00-5-5zm0 0a5 5 0 010 10 5 5 0 010-10zm-3 5a3 3 0 116 0 3 3 0 01-6 0zm9 9a4.978 4.978 0 00-3-4.5 5.008 5.008 0 00-6 0A4.978 4.978 0 005 16a5 5 0 0010 0zm1 0a6 6 0 11-12 0 6 6 0 0112 0z"/>
+  </svg>
+  Dashboard
+</a>
+
+
+
       </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
@@ -48,12 +61,12 @@
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
               <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 font-serif" routerLink="home" routerLinkActive="active">Home</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 font-serif" routerLink="course">Buy Courses</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 font-serif">Playlist</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 font-serif" routerLink="contact">Contact Us</a>
+              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 font-serif" routerLink="course" routerLinkActive="active">Buy Courses</a>
+              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 font-serif" routerLinkActive="active">Playlist</a>
+              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 font-serif" routerLink="contact" routerLinkActive="active">Contact Us</a>
             </div>
             <div class="py-6">
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 font-serif" routerLink="login">Sign In</a>
+              <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 font-serif" routerLink="login" routerLinkActive="active">Sign In</a>
             </div>
           </div>
         </div>

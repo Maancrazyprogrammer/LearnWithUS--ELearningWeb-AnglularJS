@@ -17,6 +17,16 @@ export class CoursePriceComponent {
   IsLogin(){
     if(this.authservice.isLoggedIn()){
       this.router.navigate(['/d/fcourses']);
+
+    }  
+    else{
+      this.router.navigate(['login']);
+    }
+  }
+  IsLoginForBuy(){
+    if(this.authservice.isLoggedIn()){
+      this.router.navigate(['/d/buyCourses']);
+
     }  
     else{
       this.router.navigate(['login']);
