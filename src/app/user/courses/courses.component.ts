@@ -4,6 +4,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { BlogComponent } from "../../g/blog/blog.component";
 import { EnrolledCoursesComponent } from "../enrolled-courses/enrolled-courses.component";
 import { CourseDescComponent } from './course-desc/course-desc.component';
+import Aos from 'aos';
 
 @Component({
   selector: 'app-courses',
@@ -89,8 +90,8 @@ placeholderCourses: any;
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+
+  ngOnInit() {Aos.init(); }
   Monthly(){
    this.monthly=true;
    this.annually=false;

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import AOS from "aos";
 @Component({
   selector: 'app-footer',
   standalone: true,
@@ -25,5 +26,8 @@ export class FooterComponent implements AfterViewInit {
     if (this.videoPlayers) {
       this.videoPlayers.nativeElement.muted = true;
     }
+  }
+  ngOnInit(){
+    AOS.init();
   }
 }

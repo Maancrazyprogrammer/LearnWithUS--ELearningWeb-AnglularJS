@@ -68,19 +68,7 @@ export class EmailVerificationComponent {
       }
     );
   }
-  // onSubmit(): void {
-  //   if (this.verifyEmailForm.valid) {
-  //     this.authService.verifyEmail(this.verifyEmailForm.value).subscribe(
-  //       response => {
-  //         alert(response.msg);
-  //         this.router.navigate(['/login']);
-  //       },
-  //       error => {
-  //         alert(error.error.msg);
-  //       }
-  //     );
-  //   }
-  // }
+
 
   resendCode(): void {
     this.apiService.resendVerificationCode(this.email).subscribe(

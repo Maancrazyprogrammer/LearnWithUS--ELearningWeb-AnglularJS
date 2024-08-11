@@ -2,6 +2,7 @@ import { NgClass, NgIf, NgStyle } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import Aos from 'aos';
 
 @Component({
   selector: 'app-profile',
@@ -26,6 +27,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadUserProfile();
+    Aos.init();
   }
 
   loadUserProfile() {
@@ -66,4 +68,5 @@ export class ProfileComponent implements OnInit {
       reader.readAsDataURL(file);
     }
   }
+  
 }

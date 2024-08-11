@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import Aos from 'aos';
 
 @Component({
   selector: 'app-error-page',
@@ -10,4 +11,5 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class ErrorPageComponent {
 
+  ngOnInit() {Aos.init(); }
 }

@@ -3,7 +3,7 @@ import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/rou
 
 import { AuthServiceService } from '../../service/auth-service.service';
 import { NgClass, NgIf } from '@angular/common';
-
+import AOS from "aos";
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -12,20 +12,29 @@ import { NgClass, NgIf } from '@angular/common';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  isLoggedIn:boolean=false;
+  isLoggedIn:boolean | undefined
   @Input({
     alias:'logonamerequired',
     required:true,
     transform:(value:string)=> value.toUpperCase()
   }) logoName:string='E-Learning Plateform';
  constructor(private service:AuthServiceService,private router:Router){
-  this.service.isLoggedIn() ? this.isLoggedIn=true : this.isLoggedIn=false;
+  
 }
 
+ngOnInit():void{
+  AOS.init();
+  if(this.service.isLoggedIn()){
+    this.isLoggedIn=true;
+  }
+  else{
+    this.isLoggedIn=false;
+  }
+}
   isMenuOpen = false;
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
- 
+
 }

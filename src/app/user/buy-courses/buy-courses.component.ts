@@ -1,6 +1,7 @@
 import { CurrencyPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import Aos from 'aos';
 import { pipe } from 'rxjs';
 
 @Component({
@@ -68,7 +69,7 @@ export class BuyCoursesComponent {
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit() {Aos.init(); }
   Monthly(){
     this.monthly=true;
     this.annually=false;
@@ -77,4 +78,5 @@ export class BuyCoursesComponent {
  this.annually=true;
  this.monthly=false;
   }
+
 }

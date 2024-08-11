@@ -1,6 +1,7 @@
 import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import Aos from 'aos';
 
 @Component({
   selector: 'app-freecourses',
@@ -65,8 +66,8 @@ export class FreecoursesComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+ 
+  ngOnInit() {Aos.init(); }
   Monthly(){
     this.monthly=true;
     this.annually=false;

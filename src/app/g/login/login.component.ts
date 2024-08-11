@@ -5,6 +5,8 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthServiceService } from '../../service/auth-service.service';
 
 
+
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -23,7 +25,7 @@ export class LoginComponent {
     private fb: FormBuilder,
     private authService: AuthServiceService,
     private router: Router,
- 
+   
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -45,17 +47,20 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe(
         (response) => {
-         
+       
           this.router.navigate(['/d']);
          
 
         },
         error => {
+      
           this.loginError = error.error.msg;
          
         }
       );
     }
   }
+
+
 
 }

@@ -6,6 +6,8 @@ import { NavbarComponent } from './g/navbar/navbar.component';
 import { FooterComponent } from './g/footer/footer.component';
 import { MainComponent } from './g/main/main.component';
 
+
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -15,4 +17,6 @@ import { MainComponent } from './g/main/main.component';
 })
 export class AppComponent {
   title = 'project';
+  
+
 }
